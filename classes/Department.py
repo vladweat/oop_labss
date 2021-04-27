@@ -13,7 +13,7 @@ def _next_num_of_dep():
 class Department:
     """
     Class Department.
-
+    123ewq
     :param str short_name: short name of department
     :param str full_name: long/full name of department
     :param cls head_of_department: user with role HEAD
