@@ -15,6 +15,7 @@ class User:
     """
     Class User.
     """
+
     def __init__(self, login=None, password=None, full_name=None, role=None):
         self._id = _next_id_num()
         self.__login = login
@@ -33,7 +34,6 @@ class User:
     @property
     def full_name(self):
         return self.__full_name
-
 
     def get_login(self):
         return self.__login

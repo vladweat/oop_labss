@@ -8,11 +8,17 @@ class MaterialRespOfDepartment(User):
         super().__init__()
         self.__full_name = full_name
 
+        self.__call_num = 0
+
         self.split_full_name()
 
     @property
     def full_name(self):
         return self.__full_name
+
+    @property
+    def call_num(self):
+        return self.__call_num
 
     def split_full_name(self):
         fio = str(self.__full_name).split(' ')
@@ -28,3 +34,19 @@ class MaterialRespOfDepartment(User):
 
     def get_patronymic(self):
         return self.patronymic
+
+    def __call__(self):
+        self.__call_num += 1
+
+    def __str__(self):
+        return f'Num of all calls of this object is {self.call_num}'
+
+
+if __name__ == '__main__':
+    mat_resp = MaterialRespOfDepartment(full_name='Kononov Vladislav Andreevich')
+    mat_resp()
+    mat_resp()
+    mat_resp()
+    mat_resp()
+    mat_resp()
+    print(mat_resp)
