@@ -37,22 +37,24 @@ class HeadOfDepartment(User):
         self.split_full_name(new_full_name)
 
     def __str__(self):
-        return f'{self.surname} {self.name} {self.patronymic} is head of department'
+        return f'{self.surname} {self.name} {self.patronymic}'
 
 
-if __name__ == '__main__':
-    head = HeadOfDepartment(full_name='Kononov Vladislav Andreevich')
-    dep1 = Department(short_name='first dep', head_of_department=head)
-    # #
-    # # print(head.name)
-    #
-    # print(head.role)
-    # print(head)
-    # print(f'Dep {dep1.get_short_name()}, head {dep1.head_dep.name} {dep1.head_dep.surname}\n\n')
-    # print(dep1.head_dep.full_name)
-    # print(head.full_name)
-    # print(head.name)
-    print(head)
-    head('Ivanov Ivan Ivanovich')
-    print(head)
-    print(HeadOfDepartment.__doc__)
+# if __name__ == '__main__':
+#     head = HeadOfDepartment(full_name='Kononov Vladislav Andreevich')
+#     dep1 = Department(short_name='first dep', head_of_department=head)
+#     # #
+#     # # print(head.name)
+#     #
+#     # print(head.role)
+#     # print(head)
+#     # print(f'Dep {dep1.get_short_name()}, head {dep1.head_dep.name} {dep1.head_dep.surname}\n\n')
+#     # print(dep1.head_dep.full_name)
+#     # print(head.full_name)
+#     # print(head.name)
+#     print(head)
+#     head('Ivanov Ivan Ivanovich')
+#     print(head)
+#     print(HeadOfDepartment.__doc__)
+
+

@@ -18,7 +18,7 @@ class TestDepartment(unittest.TestCase):
 
     def test_department_set_full_name(self):
         self.department.set_full_name('department 1')
-        self.assertEqual(self.department.full_name, 'department 1')
+        self.assertEqual(self.department.__full_name, 'department 1')
 
     def test_department_set_head_of_dep(self):
         self.department.set_head_dep('head 1')

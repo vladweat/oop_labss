@@ -1,8 +1,8 @@
 """Module contains main class Tech and other things"""
 
-
 import pickle
-from classes.Exception import CheckingDate, CheckingPrice
+from classes.Exception import CheckingDate, CheckingPrice, LogTime, Log
+from classes.Location import *
 
 _next_inv_num = 0
 
@@ -24,7 +24,7 @@ class Tech:
         self.model = model
         self.date_of_purchase = CheckingDate()
         self.price = CheckingPrice()
-        self.current_location = current_location
+        self.current_location = Location(current_location)
 
     def get_inventory_number(self):
         return self._inventory_number
@@ -64,13 +64,14 @@ class Tech:
 
     def __str__(self):
         return f"Tech inv number: {self._inventory_number}, name: {self.name}, model: {self.model}, " \
-               f"purchase date: {self.date_of_purchase}, price: {self.price}, location: {self.current_location}"
+               f"purchase date: {self.date_of_purchase}, price: {self.price}, location: {self.current_location.get_department()}"
 
-    def __del__(self):
-        with open('D:\Python\oop_labs\dels/tech.txt', 'a', encoding='utf-8') as f:
-            f.write(f'tech {self._inventory_number}: name - {self.name}, model - {self.model}, price - {self.price}, '
-                    f'date of purchase - {self.date_of_purchase}, current location - {self.current_location}\n')
-        f.close()
+    # def __del__(self):
+    #     with open('C:\Python\Projects\oop_labss\dels/tech.txt', 'a', encoding='utf-8') as f:
+    #         f.write(f'tech {self._inventory_number}: name - {self.name}, model - {self.model}, price - {self.price}, '
+    #                 f'date of purchase - {self.date_of_purchase}, current location - {self.current_location}\n')
+    #     f.close()
+
 
 class PersistenceTech(object):
     @staticmethod
@@ -107,3 +108,4 @@ def test_tech(tech):
 
     entered_location = input(f"enter current location of tech №{tech._inventory_number}: ")
     tech.set_current_location(entered_location)
+

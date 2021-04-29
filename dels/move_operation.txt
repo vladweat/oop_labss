@@ -1,4 +1,0 @@
-new location: None, old location: None, tech: None, date: 02.03.2021
-new location: dep23, old location: None, tech: None, date: <classes.Exception.CheckingDate object at 0x00000198B075B130>
-new location: None, old location: main dep, tech: None, date: <classes.Exception.CheckingDate object at 0x00000198B075B280>
-new location: None, old location: None, tech: HP 345, date: <classes.Exception.CheckingDate object at 0x00000198B075B130>

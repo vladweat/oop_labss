@@ -1,17 +1,20 @@
 """Module contains main class MoveOperation and other things"""
-
+import datetime
 import pickle
 
-from classes.Exception import CheckingDate
+from classes.Exception import CheckingDate, Log, LogTime
+from classes.Location import *
+from classes.Tech import *
 
 
-class MoveOperation:
+class MoveOperation(Location, Tech):
     """
     Class MoveOperation.
     """
 
     def __init__(self, new_location=None, old_location=None, tech=None, date=None):
-        self.new_location = new_location
+        super(MoveOperation, self).__init__()
+        self.new_location = Location(department=new_location)
         self.old_location = old_location
         self.tech = tech
         self.date = CheckingDate()
@@ -41,14 +44,14 @@ class MoveOperation:
         self.date = date
 
     def __str__(self):
-        return f"Move info: old location: {self.old_location}, new location: {self.new_location}, " \
-               f"tech: {self.tech}, date: {self.date}"
+        return f"Move info: old location: {self.old_location.get_department()}, new location: {self.new_location.get_department()}, " \
+               f"tech №: {self.tech.get_inventory_number()}, date: {self.date}"
 
-    def __del__(self):
-        with open('D:\Python\oop_labs\dels\move_operation.txt', 'a', encoding='utf-8') as f:
-            f.write(f'new location: {self.new_location}, old location: {self.old_location}, tech: {self.tech}, '
-                    f'date: {self.date}\n')
-        f.close()
+    # def __del__(self):
+    #     with open('D:\Python\oop_labs\dels\move_operation.txt', 'a', encoding='utf-8') as f:
+    #         f.write(f'new location: {self.new_location}, old location: {self.old_location}, tech: {self.tech}, '
+    #                 f'date: {self.date}\n')
+    #     f.close()
 
 
 class PersistenceMoveOperation(object):
@@ -78,3 +81,11 @@ def test_move_operation(move):
 
     entered_date = input(f"enter date: ")
     move.set_date(entered_date)
+
+
+if __name__ == '__main__':
+    tech1 = Tech('tech #1', 'model v2', (23, 10, 2000), 2000, 'dep56')
+    mo1 = MoveOperation('dep1', tech1.current_location, tech1, date=datetime.date.today())
+
+    print(tech1)
+    print(mo1)

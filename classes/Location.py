@@ -38,13 +38,13 @@ class Location:
         self.department = department
 
     def __str__(self):
-        return f"Location num of room: {self._num_of_room}, department: {self.department}, techs: {self.techs}"
+        return f"Location num of room: {self._num_of_room}, department #: {self.department._num_of_dep}, techs: {self.techs}"
 
-    def __del__(self):
-        path = 'D:\Python\oop_labs\dels\location.txt'
-        with open(path, 'a', encoding='utf-8') as f:
-            f.write(f'room {self._num_of_room}: department - {self.department}, techs - {self.techs}\n')
-        f.close()
+    # def __del__(self):
+    #     path = 'D:\Python\oop_labs\dels\location.txt'
+    #     with open(path, 'a', encoding='utf-8') as f:
+    #         f.write(f'room {self._num_of_room}: department - {self.department}, techs - {self.techs}\n')
+    #     f.close()
 
 
 def test_location(location):
